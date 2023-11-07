@@ -6,6 +6,6 @@ Feature: Login Functionality
 
   Scenario: Validate Login page
     Given I am on Homepage
-    When  I click On loing button
+    When  I click On login button
     Then I should see"Welcome, Please Sign In!" text on login page
     And  the URL should contain wiht "/login"

@@ -18,7 +18,8 @@ public class Hooks {
     }
 
     @After
-    public void tearDownMethod() {
+    public void tearDownMethod() throws InterruptedException {
+        driverManager.sleepBrowser(5000);
         driverManager.closeBrowserMethod();
 
     }

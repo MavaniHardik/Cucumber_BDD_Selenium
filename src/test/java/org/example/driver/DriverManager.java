@@ -43,11 +43,21 @@ public class DriverManager {
         driver.manage().window().maximize();
     }
 
+    public String getCurrentURL(){
+       return driver.getCurrentUrl();
+    }
+
+
+
     public void openUrlMethod(){
         driver.get(baseURL);
     }
 
     public void closeBrowserMethod(){
         driver.quit();
+    }
+
+    public void sleepBrowser(int millisecond ) throws InterruptedException {
+        Thread.sleep(millisecond);
     }
 }
