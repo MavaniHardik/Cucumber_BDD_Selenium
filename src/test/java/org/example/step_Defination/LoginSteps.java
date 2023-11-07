@@ -12,7 +12,7 @@ import static org.hamcrest.core.Is.is;
 public class LoginSteps extends DriverManager {
     DriverManager driverManager = new DriverManager();
     LoginPage loginPage = new LoginPage();
-    @Then("^I should see\"([^\"]*)\" text on login page$")
+    @Then("^I should see \"([^\"]*)\" text on login page$")
     public void i_should_see_text_on_login_page(String expectedText) throws Throwable {
         System.out.println(expectedText);
         String myActualWelcomeText = loginPage.getWelcomeTextOnLoginPage();

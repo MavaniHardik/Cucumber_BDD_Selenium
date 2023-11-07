@@ -1,6 +1,5 @@
 package org.example.step_Defination;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;

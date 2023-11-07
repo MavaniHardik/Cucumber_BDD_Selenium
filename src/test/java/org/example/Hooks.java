@@ -15,6 +15,7 @@ public class Hooks {
         driverManager.runOnLocalBrowser();
         driverManager.maxBrowser();
         driverManager.openUrlMethod();
+        driverManager.implicityWait();
     }
 
     @After

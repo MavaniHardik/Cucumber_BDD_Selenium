@@ -1,4 +1,4 @@
-@BK
+@Login
 Feature: Login Functionality
   As a End user
   I want to login to the website
@@ -7,5 +7,5 @@ Feature: Login Functionality
   Scenario: Validate Login page
     Given I am on Homepage
     When  I click On login button
-    Then I should see"Welcome, Please Sign In!" text on login page
+    Then I should see "Welcome, Please Sign In!" text on login page
     And  the URL should contain wiht "/login"
