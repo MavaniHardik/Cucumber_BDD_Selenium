@@ -1,6 +1,7 @@
 package org.example.step_Defination;
 
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;
 import org.example.pages.LoginPage;
 
@@ -22,11 +23,29 @@ public class LoginSteps extends DriverManager {
 
     }
 
-    @Then("^the URL should contain wiht \"([^\"]*)\"$")
+    @Then("^the URL should contain with \"([^\"]*)\"$")
     public void the_URL_should_contain_wiht(String expectedURLText) throws Throwable {
        String myActualCurrentURL = driverManager.getCurrentURL();
         System.out.println(myActualCurrentURL);
 
         assertThat(myActualCurrentURL,containsString(expectedURLText));
     }
+
+    @When("^I enter Valid Email \"([^\"]*)\" and Password \"([^\"]*)\"$")
+    public void i_enter_Valid_Email_and_Password(String email, String password) throws Throwable {
+        loginPage.enterEmailandPassword(email,password);
+    }
+
+    @When("^I click On login button on Login Page$")
+    public void i_click_On_login_button_on_Login_Page() throws Throwable {
+        loginPage.clickOnLoginButtonOnLoginPage();
+    }
+
+    @Then("^I Should see Logout button is displayed$")
+    public void i_Should_see_Logout_button_is_displayed() throws Throwable {
+        boolean isLogoutButtonDisplayed = loginPage.checkLogoutButtonIsDisplayed();
+        assertThat(isLogoutButtonDisplayed, is(true));
+
+    }
+
 }

@@ -11,5 +11,11 @@ tags = "@Login",
 plugin = "json:target/cucumber-report/cucumber.json")
 public class RunCukesTest {
     //cucumber Test
+    // a json report is generated as target/cucumber-report
+    //open maven tab and click 'execute maven goal'
+    //enter 'cluecumber-report:reporting' and click ok to build
+
+    //report will generated in target folder as generated-report
+    //to run from intellij
 
 }

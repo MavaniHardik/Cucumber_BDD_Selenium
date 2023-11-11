@@ -8,4 +8,24 @@ Feature: Login Functionality
     Given I am on Homepage
     When  I click On login button
     Then I should see "Welcome, Please Sign In!" text on login page
-    And  the URL should contain wiht "/login"
+    And  the URL should contain with "/login"
+
+    Scenario: Login with valid details
+      Given I am on Homepage
+      When  I click On login button
+      And I enter Valid Email "hardik@gmail.com" and Password "Hardik123"
+      And  I click On login button on Login Page
+      Then I Should see Logout button is displayed
+
+  Scenario Outline: Login with different valid details
+    Given I am on Homepage
+    When  I click On login button
+    And I enter Valid Email "<myEmail>" and Password "<myPassword>"
+    And  I click On login button on Login Page
+    Then I Should see Logout button is displayed
+
+Examples:
+    |myEmail|myPassword|
+    |       |          |
+|       |          |
+    |       |          |
