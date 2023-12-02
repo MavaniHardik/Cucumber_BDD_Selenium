@@ -1,5 +1,7 @@
 package org.example.step_Defination;
 
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;
@@ -41,11 +43,14 @@ public class LoginSteps extends DriverManager {
         loginPage.clickOnLoginButtonOnLoginPage();
     }
 
-    @Then("^I Should see Logout button is displayed$")
+    @And("^I Should see Logout button is displayed$")
     public void i_Should_see_Logout_button_is_displayed() throws Throwable {
         boolean isLogoutButtonDisplayed = loginPage.checkLogoutButtonIsDisplayed();
         assertThat(isLogoutButtonDisplayed, is(true));
 
     }
 
-}
+
+
+    }
+

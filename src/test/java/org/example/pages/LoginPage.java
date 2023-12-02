@@ -19,7 +19,7 @@ public class LoginPage extends DriverManager {
 
     @FindBy(css = ".ico-logout")
     public WebElement logOutButton;
-
+    DriverManager driverManager = new DriverManager();
 
 
     public String getWelcomeTextOnLoginPage() throws InterruptedException {
@@ -34,11 +34,13 @@ public class LoginPage extends DriverManager {
         passwordInputField.sendKeys(password);
     }
 
-    public void clickOnLoginButtonOnLoginPage(){
+    public void clickOnLoginButtonOnLoginPage() throws InterruptedException {
         loingButtonOnLogin.click();
+        driverManager.sleepBrowser(3000);
     }
 
-    public boolean checkLogoutButtonIsDisplayed(){
+    public boolean checkLogoutButtonIsDisplayed() throws InterruptedException {
        return logOutButton.isDisplayed();
+
     }
 }
