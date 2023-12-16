@@ -8,7 +8,7 @@ public class RegistrationPage extends DriverManager {
     DriverManager driverManager = new DriverManager();
 
 @FindBy (className = "ico-register")
-public WebElement clickOnRegister;
+public WebElement registerButtonOnHeader;
     @FindBy(id = "gender-male")
     public WebElement maleCheckBox;
 
@@ -16,7 +16,7 @@ public WebElement clickOnRegister;
     public WebElement femaleCheckBox;
 
     @FindBy(id = "register-button")
-    public WebElement registrationButton;
+    public WebElement registrationButtonforSubmit;
 
     @FindBy(id = "FirstName")
     public WebElement firstNameInputBox;
@@ -36,8 +36,8 @@ public WebElement clickOnRegister;
     @FindBy(css = "div[class='result']")
     public WebElement registrationSuccessText;
 
-public void clickonRegister(){
-    clickOnRegister.click();
+public void clickOnRegisterationButtonOnHeader(){
+    registerButtonOnHeader.click();
 }
 
     public void selectMale(){
@@ -48,15 +48,15 @@ public void clickonRegister(){
         femaleCheckBox.click();
     }
 
-    public void clickOnRegistrationButton() {
-        registrationButton.click();
+    public void clickOnRegistrationButtonForSubmit() {
+        registrationButtonforSubmit.click();
     }
 
     public String getTextFromRegistrationResult() {
         return registrationSuccessText.getText();
     }
 
-    public void enterRegistrationDetails(String firstName, String lastName, String email, String password, String confirmPassword) throws InterruptedException {
+   public void enterRegistrationDetails(String firstName, String lastName, String email, String password, String confirmPassword) throws InterruptedException {
         firstNameInputBox.clear();
         firstNameInputBox.sendKeys(firstName);
         lastNameInputBox.clear();
@@ -71,10 +71,7 @@ public void clickonRegister(){
         driverManager.sleepBrowser(4000);
     }
 
-    public void clickOnRegistraionButton(){
-        registrationButton.click();
+
 
     }
 
-
-}
