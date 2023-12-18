@@ -80,10 +80,40 @@ public class RegistrationStep extends DriverManager {
 
 
     @Then("^the url should contain with \"([^\"]*)\"$")
-    public void the_url_should_contain_with(String expetedTextInURL) throws Throwable {
+    public void the_url_should_contain_with(String expectedTextInURL) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
      String myActualURL = driverManager.getCurrentURL();
-     assertThat(myActualURL,containsString(expetedTextInURL));
+     assertThat(myActualURL,containsString(expectedTextInURL));
     }
-}
+
+
+
+    @When("^I enter my firstname \"([^\"]*)\" and lastname \"([^\"]*)\"$")
+    public void i_enter_my_firstname_and_lastname(String enterFirstName, String enterLastName) throws Throwable {
+        registrationPage.enterFirstnameAndLastname(enterFirstName,enterLastName);
+
+
+    }
+
+    @When("^I enter my emailid \"([^\"]*)\"$")
+    public void i_enter_my_emailid(String enterEmail) throws Throwable {
+        registrationPage.emailInputBox.clear();
+        registrationPage.emailInputBox.sendKeys(enterEmail);
+        driverManager.sleepBrowser(2000);
+
+
+    }
+
+    @When("^I enter my password \"([^\"]*)\"$")
+    public void i_enter_my_password(String arg1) throws Throwable {
+
+
+    }
+
+    @When("^I enter confirm Password \"([^\"]*)\"$")
+    public void i_enter_confirm_Password(String arg1) throws Throwable {
+
+
+
+    }}
 

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;;
 dryRun = false,
 strict = true,
 monochrome = true,
-tags = "@ValidateLogin",
+tags = "@SingleRegisration",
 plugin = "json:target/cucumber-report/cucumber.json")
 public class RunCukesTest {
     //cucumber Test

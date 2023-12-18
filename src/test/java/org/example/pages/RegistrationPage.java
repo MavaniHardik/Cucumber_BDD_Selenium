@@ -72,6 +72,14 @@ public void clickOnRegisterationButtonOnHeader(){
     }
 
 
+    public void enterFirstnameAndLastname (String firstname,String lastname) throws InterruptedException {
+        firstNameInputBox.clear();
+        firstNameInputBox.sendKeys(firstname);
+        lastNameInputBox.clear();
+        lastNameInputBox.sendKeys(lastname);
+        driverManager.sleepBrowser(5000);
+
+    }
 
     }
 
