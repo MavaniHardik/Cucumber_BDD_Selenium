@@ -7,8 +7,8 @@ import org.openqa.selenium.support.FindBy;
 public class RegistrationPage extends DriverManager {
     DriverManager driverManager = new DriverManager();
 
-@FindBy (className = "ico-register")
-public WebElement registerButtonOnHeader;
+    @FindBy(className = "ico-register")
+    public WebElement registerButtonOnHeader;
     @FindBy(id = "gender-male")
     public WebElement maleCheckBox;
 
@@ -36,15 +36,15 @@ public WebElement registerButtonOnHeader;
     @FindBy(css = "div[class='result']")
     public WebElement registrationSuccessText;
 
-public void clickOnRegisterationButtonOnHeader(){
-    registerButtonOnHeader.click();
-}
+    public void clickOnRegisterationButtonOnHeader() {
+        registerButtonOnHeader.click();
+    }
 
-    public void selectMale(){
+    public void selectMale() {
         maleCheckBox.click();
     }
 
-    public void selectFemale(){
+    public void selectFemale() {
         femaleCheckBox.click();
     }
 
@@ -56,30 +56,45 @@ public void clickOnRegisterationButtonOnHeader(){
         return registrationSuccessText.getText();
     }
 
-   public void enterRegistrationDetails(String firstName, String lastName, String email, String password, String confirmPassword) throws InterruptedException {
+    public void enterRegistrationDetails(String firstName, String lastName, String email, String password, String confirmPassword) throws InterruptedException {
         firstNameInputBox.clear();
         firstNameInputBox.sendKeys(firstName);
         lastNameInputBox.clear();
         lastNameInputBox.sendKeys(lastName);
         emailInputBox.clear();
         int myRandomNumber = driverManager.generateRandomNumber();
-        emailInputBox.sendKeys(myRandomNumber+email);
+        emailInputBox.sendKeys(myRandomNumber + email);
         passwordInputBox.clear();
         passwordInputBox.sendKeys(password);
         confirmPasswordInputBox.clear();
         confirmPasswordInputBox.sendKeys(confirmPassword);
-        driverManager.sleepBrowser(4000);
+        driverManager.sleepBrowser(1000);
     }
 
 
-    public void enterFirstnameAndLastname (String firstname,String lastname) throws InterruptedException {
+    public void enterFirstnameAndLastname(String firstname, String lastname) throws InterruptedException {
         firstNameInputBox.clear();
         firstNameInputBox.sendKeys(firstname);
         lastNameInputBox.clear();
         lastNameInputBox.sendKeys(lastname);
-        driverManager.sleepBrowser(5000);
-
+        driverManager.sleepBrowser(1000);
     }
 
+    public void enterEmail(String enterEmail) throws InterruptedException {
+        emailInputBox.clear();
+        emailInputBox.sendKeys(enterEmail);
+        driverManager.sleepBrowser(2000);
+
     }
+    public void enterPassword(String password){
+        passwordInputBox.clear();
+        passwordInputBox.sendKeys(password);
+    }
+
+    public void enterConfirmPassword(String confirmPassword){
+        confirmPasswordInputBox.clear();
+        confirmPasswordInputBox.sendKeys(confirmPassword);
+    }
+
+}
 

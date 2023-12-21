@@ -13,6 +13,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -52,7 +53,7 @@ public class DriverManager {
     }
 
     public void runInHeadlessBrowser() throws IllegalAccessException {
-        switch (browser){
+        switch (browser) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
@@ -62,16 +63,16 @@ public class DriverManager {
                 break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                FirefoxOptions firefoxOptions=new FirefoxOptions();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.setHeadless(true);
                 firefoxOptions.addArguments("--window-size=1920,1080");
-                driver=new FirefoxDriver(firefoxOptions);
+                driver = new FirefoxDriver(firefoxOptions);
                 break;
             case "edge":
                 WebDriverManager.edgedriver().setup();
-                EdgeOptions op=new EdgeOptions();
+                EdgeOptions op = new EdgeOptions();
 //                op.addArguments("headless");
-                driver= new EdgeDriver(op);
+                driver = new EdgeDriver(op);
                 break;
             default:
                 throw new IllegalAccessException("Unexpected browser");
@@ -120,16 +121,16 @@ public class DriverManager {
         return result.toString();
     }
 
-    public void takeElementscreenshot(WebElement element, String fileName)  {
-        File scnFile =element.getScreenshotAs(OutputType.FILE);
+    public void takeElementscreenshot(WebElement element, String fileName) {
+        File scnFile = element.getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(scnFile, new File("./target/screenshots/" +fileName+ ".png"));
+            FileUtils.copyFile(scnFile, new File("./target/screenshots/" + fileName + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void takeScreenshot(Scenario scenario){
+    public void takeScreenshot(Scenario scenario) {
 
         byte[] screenShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
         scenario.embed(screenShot, "image/png");
@@ -145,9 +146,9 @@ public class DriverManager {
         }
     }
 
-    public WebElement waitUntilElementIsClickable(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver,30);
-        return     wait.until(ExpectedConditions.elementToBeClickable(element));
+    public WebElement waitUntilElementIsClickable(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void waitForElementVisibility(WebElement element, int timeout, String failureMessage) {
@@ -158,7 +159,7 @@ public class DriverManager {
 
     public void scrollTo(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-    }
-}
+    }}
+
 
 

@@ -97,23 +97,21 @@ public class RegistrationStep extends DriverManager {
 
     @When("^I enter my emailid \"([^\"]*)\"$")
     public void i_enter_my_emailid(String enterEmail) throws Throwable {
-        registrationPage.emailInputBox.clear();
-        registrationPage.emailInputBox.sendKeys(enterEmail);
-        driverManager.sleepBrowser(2000);
+        registrationPage.enterEmail(enterEmail);
 
 
     }
 
     @When("^I enter my password \"([^\"]*)\"$")
-    public void i_enter_my_password(String arg1) throws Throwable {
+    public void i_enter_my_password(String password) throws Throwable {
+        registrationPage.enterPassword(password);
+
 
 
     }
 
     @When("^I enter confirm Password \"([^\"]*)\"$")
-    public void i_enter_confirm_Password(String arg1) throws Throwable {
-
-
-
+    public void i_enter_confirm_Password(String confirmPassword) throws Throwable {
+        registrationPage.enterConfirmPassword(confirmPassword);
     }}
 
