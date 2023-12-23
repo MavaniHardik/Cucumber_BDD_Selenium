@@ -89,6 +89,7 @@ public class RegistrationPage extends DriverManager {
     public void enterPassword(String password){
         passwordInputBox.clear();
         passwordInputBox.sendKeys(password);
+
     }
 
     public void enterConfirmPassword(String confirmPassword){

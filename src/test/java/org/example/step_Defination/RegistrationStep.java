@@ -7,10 +7,12 @@ import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;
 import org.example.pages.RegistrationPage;
 
+
 import java.util.List;
 import java.util.Map;
 
 import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.bouncycastle.cms.RecipientId.password;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalToIgnoringCase;
 import static org.junit.Assert.assertThat;
@@ -105,6 +107,8 @@ public class RegistrationStep extends DriverManager {
     @When("^I enter my password \"([^\"]*)\"$")
     public void i_enter_my_password(String password) throws Throwable {
         registrationPage.enterPassword(password);
+        int length = password.length();
+
 
 
 
@@ -113,5 +117,6 @@ public class RegistrationStep extends DriverManager {
     @When("^I enter confirm Password \"([^\"]*)\"$")
     public void i_enter_confirm_Password(String confirmPassword) throws Throwable {
         registrationPage.enterConfirmPassword(confirmPassword);
+        int length = confirmPassword.length();
     }}
 
